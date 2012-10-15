@@ -26,3 +26,6 @@
 .navbar-inner {
   border: 0;
 }
+h1 {
+  text-transform: uppercase;
+}
