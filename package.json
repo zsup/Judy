@@ -1,6 +1,6 @@
 {
   "name": "judy",
-  "description": "The front-end for Spark."
+  "description": "The front-end for Spark.",
   "version": "0.0.1",
   "private": true,
   "scripts": {
