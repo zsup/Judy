@@ -4,6 +4,13 @@
 
 // It starts here.
 
+@import "bootstrap.less";
+
+@demoColor:									@orange;
+@kickstarterColor:			#87C442;
+@angelListColor:				@purple;
+@apiDocsColor:					#00ABDF;
+
 .navbar .logo {
 	float: left;
 	display: block;
@@ -20,12 +27,12 @@
 
 .nav > li > a.ks {
 	color: #000;
-	background: #87C442;
-	margin: 20px 0;
+	background: @kickstarterColor;
+	margin: 20px 20px 20px 0;
 	padding: 20px;
 	display: block;
 	&:hover {
-		background: darken(#87C442, 5%);
+		background: darken(@kickstarterColor, 5%);
 	}
 }
 
@@ -35,4 +42,36 @@
 
 h1 {
 	text-transform: uppercase;	
+}
+
+.btn-spark {
+	padding: 20px;
+	font-size: 18px;
+	line-height: 20px;
+	border: 0;
+	.border-radius(0);
+}
+
+.btn-demo {
+	.buttonBackground(@demoColor, @demoColor);
+}
+
+.direction {
+	padding-top: 60px;
+}
+
+.btn-kickstarter {
+	.buttonBackground(@kickstarterColor, @kickstarterColor, #333, 0);
+}
+
+.btn-apidocs {
+	.buttonBackground(@apiDocsColor, @apiDocsColor);
+}
+
+.btn-angellist {
+	.buttonBackground(@angelListColor, @angelListColor);
+}
+
+hr {
+	margin: 60px 0;
 }
