@@ -3,3 +3,32 @@
  */
 
 // It starts here.
+
+.navbar .logo {
+	float: left;
+	display: block;
+	padding: 10px;
+	margin-left: -10px;
+}
+
+.navbar .nav > li > a {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 18px;
+	text-shadow: 0 1px 0 #eee;
+}
+
+.nav > li > a.ks {
+	color: #000;
+	background: #87C442;
+	margin: 20px 0;
+	padding: 20px;
+	display: block;
+	&:hover {
+		background: darken(#87C442, 5%);
+	}
+}
+
+.navbar-inner {
+	border: 0;
+}
