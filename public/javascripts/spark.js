@@ -7,4 +7,16 @@ $("h1").slabText({
 
 $(document).ready(function() {
   slabTextHeadlines();
+
+  $('body').waypoint(function(e, d) {
+  	if (d === 'down') {
+  		$('.inner').addClass("navbar-inner");
+  	}
+  	else {
+  		$('.inner').removeClass("navbar-inner");
+  	}
+  }, {
+  	offset: -20
+  });
 });
+
