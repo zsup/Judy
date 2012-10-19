@@ -29,7 +29,20 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+// A very limited set of websites we're hosting.
+// This should probably be handled in the router, but I'm lazy.
+
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+app.get('/demo', function (req, res) {
+  res.render('demo');
+});
+
+app.get('/api', function (req, res) {
+  res.render('api');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
