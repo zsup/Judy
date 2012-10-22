@@ -73,7 +73,6 @@ h1 {
 
     // transition is only when going to hover, otherwise the background
     // behind the gradient (there for IE<=9 fallback) gets mismatched
-    .transition(background-position .1s linear);
     .transition(background-color .2s linear);
   }
 
@@ -85,8 +84,6 @@ h1 {
   // Active state
   &.active,
   &:active {
-    background-color: darken(@white, 10%);
-    background-color: darken(@white, 15%) e("\9");
     background-image: none;
     outline: 0;
     .box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
@@ -137,6 +134,22 @@ hr {
     height: 100%;
 }
 
+.twitter-container {
+    position: relative;
+    padding-bottom: 500px; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+}
+
+.twitter-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .flatButtonBackground(@startColor) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   background-color: @startColor;
@@ -159,6 +172,14 @@ p.spread-out {
 	font-size: 18px;
 	line-height: 36px;
 	font-weight: 300;
+	margin-bottom: 24px;
+}
+
+p.api {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 300;
+	margin-bottom: 20px;
 }
 
 code.spread-out {
@@ -185,7 +206,7 @@ code.spread-out {
 
 hr.soften {
 	height: 1px;
-	margin: 30px 0 40px 0;
+	margin: 60px 0 60px 0;
     background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
     background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
