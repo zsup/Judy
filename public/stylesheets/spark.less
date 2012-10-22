@@ -6,10 +6,9 @@
 
 @import "bootstrap.less";
 
-@demoColor:									#00ABDF;
+@sparkColor:								#00ABDF;
 @kickstarterColor:					#87C442;
 @angelListColor:						@purple;
-@apiDocsColor:							#00ABDF;
 
 .navbar .logo {
 	float: left;
@@ -41,19 +40,67 @@
 }
 
 h1 {
-	text-transform: uppercase;	
+	text-transform: uppercase;
+	font-weight: 800;
 }
 
-.btn-spark {
-	padding: 20px;
-	font-size: 18px;
+.sparkbtn {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 20px;
+  margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
 	line-height: 20px;
-	border: 0;
-	.border-radius(0);
-}
+  *line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 0;
+  *border: 0;
+  border-bottom-color: darken(@btnBorder, 10%);
+  .ie7-restore-left-whitespace(); // Give IE7 some love
+  .box-shadow(inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05));
+  color: @white;
+  text-shadow: 0 1px 0 rgba(0,0,0,.25);
+  .flatButtonBackground(@sparkColor);
 
-.btn-demo {
-	.buttonBackground(@demoColor, @demoColor);
+  // Hover state
+  &:hover {
+    color: @grayLighter;
+    text-decoration: none;
+    background-position: 0 -15px;
+
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    .transition(background-position .1s linear);
+    .transition(background-color .2s linear);
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    .tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    background-color: darken(@white, 10%);
+    background-color: darken(@white, 15%) e("\9");
+    background-image: none;
+    outline: 0;
+    .box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    background-color: darken(@white, 10%);
+    background-image: none;
+    .opacity(65);
+    .box-shadow(none);
+  }
 }
 
 .direction {
@@ -61,15 +108,11 @@ h1 {
 }
 
 .btn-kickstarter {
-	.buttonBackground(@kickstarterColor, @kickstarterColor, #333, 0);
-}
-
-.btn-apidocs {
-	.buttonBackground(@apiDocsColor, @apiDocsColor);
+	.flatButtonBackground(@kickstarterColor);
 }
 
 .btn-angellist {
-	.buttonBackground(@angelListColor, @angelListColor);
+	.flatButtonBackground(@angelListColor);
 }
 
 hr {
@@ -92,4 +135,80 @@ hr {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.flatButtonBackground(@startColor) {
+  // gradientBar will set the background to a pleasing blend of these, to support IE<=9
+  background-color: @startColor;
+  *background-color: @startColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  // in these cases the gradient won't cover the background, so we override
+  &:hover, &:active, &.active, &.disabled, &[disabled] {
+    background-color: darken(@startColor, 10%);
+    *background-color: darken(@startColor, 15%);
+  }
+
+  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+  &:active,
+  &.active {
+    background-color: darken(@startColor, 20%) e("\9");
+  }
+}
+
+p.spread-out {
+	font-size: 18px;
+	line-height: 36px;
+	font-weight: 300;
+}
+
+code.spread-out {
+	display: block;
+	font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.instructions {
+	display: block;
+	background-color: @sparkColor;
+	padding: 30px 20px;
+	margin-top: 20px;
+}
+
+.instructions p {
+	color: @white;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 300;
+}
+
+hr.soften {
+	height: 1px;
+	margin: 30px 0 40px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	border: 0;
+}
+
+footer {
+	background: #eee;
+	margin-top: 45px;
+	padding: 35px 0 100px;
+	border-top: 1px solid #e5e5e5;
+}
+
+footer h5 {
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+footer ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
 }

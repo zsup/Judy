@@ -1,14 +1,6 @@
 extends layout
 
 block content
-	.navbar.navbar-fixed-top
-		.inner
-			.container
-				a.logo(href="#")
-					img(src="images/spark-brand.png")
-				ul.nav.pull-right
-					li
-						a.ks(href="#") Kickstarter
 	.container
 		.row
 			.span6
@@ -18,60 +10,38 @@ block content
 					span.slabtext Upgrade your 
 					span.slabtext lights 
 					span.slabtext with internet and apps
-				a.btn.btn-block.btn-spark.btn-demo(href="/demo") Check out a live demo
-				a.btn.btn-block.btn-spark.btn-kickstarter(href="#") Get one on Kickstarter
-		hr
+				a.sparkbtn.btn-block(href="/demo") Check out a live demo
+				a.sparkbtn.btn-block.btn-kickstarter(href="#") Get one on Kickstarter
+		hr.soften
 		.row
-			.span12
-				h2 Hey, there!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
+			.span4.pull-right
+				img.spark-one(src="/images/spark-001.jpg")
 			.span8
-				p I'm Spark. I connect your lights to the internet. Why? Well, a bunch of reasons. I let you control your lights from any smartphone, tablet, or computer. I make any light fixture dimmable, so you can have mood lighting. But most amazingly - most awesomely - I let apps interact with your lights. And that means by downloading an app on your phone, you can have a "sunrise" alarm clock that turns on your lights slowly to help you wake up in the morning, or a vacation app that turns on your lights randomly while you're away so it looks like someone's home, or a million other things. Pretty cool, huh?
-		hr
+				h2 Hey, there!
+				p.spread-out I'm Spark. I connect your lights to the internet. Why? Well, a bunch of reasons. I let you control your lights from any smartphone, tablet, or computer. I make any light fixture dimmable, so you can have mood lighting. But most amazingly - most awesomely - I let apps interact with your lights. And that means by downloading an app on your phone, you can have a "sunrise" alarm clock that turns on your lights slowly to help you wake up in the morning, or a vacation app that turns on your lights randomly while you're away so it looks like someone's home, or a million other things. Pretty cool, huh?
+		hr.soften
 		.row
 			.span12
 				h2 Hey, developers!
 		.row
-			.span4.pull-right
-				img(src="http://placehold.it/400x300")
+			.span4
+				img(src="/images/spark-002.jpg")
 			.span8
-				p I'm here for you, friends. I've got a pretty cool, unbelieveably easy-to-use API so you can make great apps for Spark. It looks like this:
-				code curl -X POST /v1/devices/DEVICE_ID/on
-				p That's an API call to turn on a light. Want to see more? Check out our API docs to learn more about the first RESTful API for your lights.
-				a.btn.btn-spark.btn-demo(href="/api") API Docs
-		hr
+				p.spread-out I'm here for you, friends. I've got a pretty cool, unbelieveably easy-to-use API so you can make great apps for Spark. It looks like this:
+				code.spread-out.prettyprint curl -X POST /v1/devices/DEVICE_ID/on
+				p.spread-out That's an API call to turn on a light. Want to see more? Check out our API docs to learn more about the first RESTful API for your lights.
+				a.sparkbtn(href="/api") API Docs
+		hr.soften
 		.row
-			.span12
+			.span5
 				h2 Hey, talented people!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're growing our team, and we need all sorts of great people. Electrical, mechanical, and software engineers. Designers of all sorts. Business folks. You like what we're doing? Want to be involved? Click through to our job listings, or just send your resume to jobs@sparkdevices.com.
-				a.btn.btn-spark.btn-demo(href="/jobs") Job listings
-		hr
-		.row
-			.span12
-				h2 Hey, distributors!
-		.row
-			.span4.pull-right
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're ready to put Spark in your hands and sell around the world. Want to help us? Send an email to partners@sparkdevices.com.
-				a.btn.btn-spark.btn-demo(href="mailto:partners@sparkdevices.com") Email us
-		hr
-		.row
-			.span12
+				p.spread-out We're growing our team, and we need all sorts of great people. Electrical, mechanical, and software engineers. Designers of all sorts. Business folks. You like what we're doing? Want to be involved? Click through to our job listings, or just send your resume to jobs@sparkdevices.com.
+				a.sparkbtn(href="/jobs") Job listings
+			.span5.offset2
 				h2 Hey, investors!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're excited to be growing fast and we need your help to grow faster. Check us out at AngelList and let's start a conversation.
-				a.btn.btn-spark.btn-demo(href="http://angel.co/spark") AngelList
-		hr
+				p.spread-out We're excited to be growing fast and we need your help to grow faster. Check us out at AngelList and let's start a conversation.
+				a.sparkbtn.btn-angellist(href="http://angel.co/spark") AngelList
+		hr.soften
 		.row
 			.span5
 				p Spark is launching Fall 2012.
@@ -79,3 +49,23 @@ block content
 				.controls.controls-row
 					input.span4(type='text', placeholder='Type email address here')
 					button.btn.span3(type='submit') Sign up for updates
+	footer
+		.container
+			.row
+				.span3
+					h5 News
+					ul
+						li
+							a(href:"http://blog.sparkdevices.com") Blog
+				.span3
+					h5 Social
+					ul
+						li
+							a(href:"http://www.facebook.com/sparkdevices") Facebook
+						li
+							a(href:"http://www.twitter.com/sparkdevices") Twitter
+				.span3
+					h5 Help
+					ul
+						li
+							a(href="#") Contact Us
