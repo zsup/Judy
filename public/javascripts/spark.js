@@ -7,6 +7,7 @@ $("h1").slabText({
 
 $(document).ready(function() {
   slabTextHeadlines();
+  prettyPrint();
 
   $('body').waypoint(function(e, d) {
   	if (d === 'down') {

@@ -14,10 +14,20 @@ html
       }
     link(rel='stylesheet', href='/stylesheets/responsive.css')
     link(rel='stylesheet', href='/stylesheets/slabtext.css')
+    link(rel='stylesheet', href='/stylesheets/sunburst.css')
+    link(rel='stylesheet', href='/stylesheets/prettify.css')
     | <!--[if lt IE 9]>
     | <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     | <![endif]-->
   body
+    .navbar.navbar-fixed-top
+      .inner
+        .container
+          a.logo(href="/")
+            img(src="images/spark-brand.png")
+          ul.nav.pull-right
+            li
+              a.ks(href="#") Kickstarter
     block content
     script(src='http://use.typekit.net/mov0hpt.js')
     script
@@ -26,4 +36,5 @@ html
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/jquery.slabtext.min.js')
     script(src='/javascripts/waypoints.min.js')
+    script(src='/javascripts/prettify.js')
     script(src='/javascripts/spark.js')

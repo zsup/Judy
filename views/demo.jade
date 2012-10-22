@@ -1,73 +1,19 @@
 extends layout
 
 block content
-	.navbar.navbar-fixed-top
-		.inner
-			.container
-				a.logo(href="#")
-					img(src="images/spark-brand.png")
-				ul.nav.pull-right
-					li
-						a.ks(href="#") Kickstarter
 	.container
 		.row
+			.span12
+				h1 
+					span.slabtext Our lights are hooked up to Twitter. Seriously.
+		.row
 			.span6
-				<a class="twitter-timeline" href="https://twitter.com/search?q=%23hellospark" data-widget-id="260444734051459072">Tweets about "#hellospark"</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				.twitter-container
+					<a class="twitter-timeline" href="https://twitter.com/search?q=%23hellospark" data-widget-id="260444734051459072">Tweets about "#hellospark"</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			.span6
-				<iframe src="http://www.ustream.tv/embed/12370545" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
-		hr
-		.row
-			.span12
-				h2 Hey, there!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
-			.span8
-				p I'm Spark. I connect your lights to the internet. Why? Well, a bunch of reasons. I let you control your lights from any smartphone, tablet, or computer. I make any light fixture dimmable, so you can have mood lighting. But most amazingly - most awesomely - I let apps interact with your lights. And that means by downloading an app on your phone, you can have a "sunrise" alarm clock that turns on your lights slowly to help you wake up in the morning, or a vacation app that turns on your lights randomly while you're away so it looks like someone's home, or a million other things. Pretty cool, huh?
-		hr
-		.row
-			.span12
-				h2 Hey, developers!
-		.row
-			.span4.pull-right
-				img(src="http://placehold.it/400x300")
-			.span8
-				p I'm here for you, friends. I've got a pretty cool, unbelieveably easy-to-use API so you can make great apps for Spark. It looks like this:
-				code curl -X POST http://sprk.io/v1/devices/Elroy/turnOn
-				p That's an API call to turn on a light named "Elroy". Want to see more? Check out our API docs to learn more about the first RESTful API for your lights.
-		hr
-		.row
-			.span12
-				h2 Hey, talented people!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're growing our team, and we need all sorts of great people. Electrical, mechanical, and software engineers. Designers of all sorts. Business folks. You like what we're doing? Want to be involved? Click through to our job listings, or just send your resume to jobs@sparkdevices.com.
-		hr
-		.row
-			.span12
-				h2 Hey, distributors!
-		.row
-			.span4.pull-right
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're ready to put Spark in your hands and sell around the world. Want to help us? Send an email to partners@sparkdevices.com.
-		hr
-		.row
-			.span12
-				h2 Hey, investors!
-		.row
-			.span4
-				img(src="http://placehold.it/400x300")
-			.span8
-				p We're excited to be growing fast and we need your help to grow faster. Check us out at AngelList and let's start a conversation.
-		hr
-		.row
-			.span5
-				p Spark is launching Fall 2012.
-			form.form-inline
-				.controls.controls-row
-					input.span4(type='text', placeholder='Type email address here')
-					button.btn.span3(type='submit') Sign up for updates
+				.embed-container
+					<iframe src="http://www.ustream.tv/embed/12370545" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
+				h4 Mention #hellospark in a tweet and our lights will flash.
+				h4 The more followers you have, the longer the lights stay on.
+				h4 Don't believe us? Try it!

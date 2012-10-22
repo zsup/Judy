@@ -1,29 +1,18 @@
 extends layout
 
 block content
-	.navbar.navbar-fixed-top
-		.inner
-			.container
-				a.logo(href="#")
-					img(src="images/spark-brand.png")
-				ul.nav.pull-right
-					li
-						a.ks(href="#") Kickstarter
 	.container
 		.row
 			.span6
-				pre.
-					# Turn off device 'Elroy'
-					curl -X POST http://sprk.io/v1/devices/Elroy/turnOff
-						-u API_KEY
+				pre.prettyprint.
+					# Turn off a light
+					curl -X POST /v1/devices/DEVICE_ID/off
 					&nbsp;
-					# Dim 'Elroy' to 50% (0-12 scale; 0 is off)
-					curl -X POST http://sprk.io/v1/devices/Elroy/dim/6
-						-u API_KEY
+					# Dim a light to 50%
+					curl -X POST /v1/devices/DEVICE_ID/50
 					&nbsp;
-					# Fade 'Elroy' off over 3 seconds (3000ms)
-					curl -X POST http://sprk.io/v1/devices/Elroy/fade/0/3000
-						-u API_KEY
+					# Fade a light off over 3 seconds (3000ms)
+					curl -X POST /v1/devices/DEVICE_ID/fade/0/3000
 
 			.span6
 				h1
@@ -33,4 +22,14 @@ block content
 			.span12
 				h3 It's like jQuery for the real world.
 				p.
-					Bacon ipsum dolor sit amet quis shoulder excepteur aliqua, cillum meatloaf id pork aliquip est rump ut doner chicken eiusmod. Ball tip sed pig duis pastrami dolore prosciutto short ribs in pork loin flank deserunt turkey venison ham. Eu aliqua tempor venison, andouille bresaola enim nostrud. Biltong shoulder consectetur commodo, aliquip ball tip pork chop doner. In sirloin jerky occaecat, dolore bresaola minim laborum magna et ad dolor reprehenderit. Tail ribeye occaecat exercitation.
+					What if with a little JavaScript magic your apps could pull someone's lights in the mix? Our API gives you complete control over lights that will feel very familiar to anyone who uses jQuery. Spark offers simple API calls, for example, to check how bright a light is, fade it up or down over a given duration, and schedule these actions to be triggered later.
+		.row
+			.span12
+				h3 Libraries are on their way.
+				p.
+					We're working on native libraries for languages like Ruby, Python, Java, and Objective-C to make your life even easier. Make great native and web apps that can reach into the real world and tap your users on the shoulder. Well, almost.
+		.row
+			.span12
+				h3 Help us!
+				p.
+					Help us release our product and API by backing us on Kickstarter!

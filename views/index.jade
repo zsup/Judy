@@ -18,8 +18,8 @@ block content
 					span.slabtext Upgrade your 
 					span.slabtext lights 
 					span.slabtext with internet and apps
-				button.btn.btn-block.btn-spark.btn-demo Check out a live demo
-				button.btn.btn-block.btn-spark.btn-kickstarter Get one on Kickstarter
+				a.btn.btn-block.btn-spark.btn-demo(href="/demo") Check out a live demo
+				a.btn.btn-block.btn-spark.btn-kickstarter(href="#") Get one on Kickstarter
 		hr
 		.row
 			.span12
@@ -38,8 +38,9 @@ block content
 				img(src="http://placehold.it/400x300")
 			.span8
 				p I'm here for you, friends. I've got a pretty cool, unbelieveably easy-to-use API so you can make great apps for Spark. It looks like this:
-				code curl -X POST http://sprk.io/v1/devices/Elroy/turnOn
-				p That's an API call to turn on a light named "Elroy". Want to see more? Check out our API docs to learn more about the first RESTful API for your lights.
+				code curl -X POST /v1/devices/DEVICE_ID/on
+				p That's an API call to turn on a light. Want to see more? Check out our API docs to learn more about the first RESTful API for your lights.
+				a.btn.btn-spark.btn-demo(href="/api") API Docs
 		hr
 		.row
 			.span12
@@ -49,6 +50,7 @@ block content
 				img(src="http://placehold.it/400x300")
 			.span8
 				p We're growing our team, and we need all sorts of great people. Electrical, mechanical, and software engineers. Designers of all sorts. Business folks. You like what we're doing? Want to be involved? Click through to our job listings, or just send your resume to jobs@sparkdevices.com.
+				a.btn.btn-spark.btn-demo(href="/jobs") Job listings
 		hr
 		.row
 			.span12
@@ -58,6 +60,7 @@ block content
 				img(src="http://placehold.it/400x300")
 			.span8
 				p We're ready to put Spark in your hands and sell around the world. Want to help us? Send an email to partners@sparkdevices.com.
+				a.btn.btn-spark.btn-demo(href="mailto:partners@sparkdevices.com") Email us
 		hr
 		.row
 			.span12
@@ -67,6 +70,7 @@ block content
 				img(src="http://placehold.it/400x300")
 			.span8
 				p We're excited to be growing fast and we need your help to grow faster. Check us out at AngelList and let's start a conversation.
+				a.btn.btn-spark.btn-demo(href="http://angel.co/spark") AngelList
 		hr
 		.row
 			.span5
