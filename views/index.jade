@@ -1,6 +1,15 @@
 extends layout
 
 block content
+	div.
+		<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166479183437506";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
 	.container
 		.row
 			.span6
@@ -12,6 +21,12 @@ block content
 					span.slabtext with internet and apps
 				a.sparkbtn.btn-block(href="/demo") Check out a live demo
 				a.sparkbtn.btn-block.btn-kickstarter(href="#") Get one on Kickstarter
+				.row
+					.span4.
+						<div class="fb-like" data-href="http://www.facebook.com/sparkdevices" data-send="false" data-width="450" data-show-faces="true" data-font="lucida grande"></div>
+					.span2.
+						<a href="https://twitter.com/sparkdevices" class="twitter-follow-button" data-show-count="false">Follow @sparkdevices</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		hr.soften
 		.row
 			.span4.pull-right
