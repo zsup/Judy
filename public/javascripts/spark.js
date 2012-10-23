@@ -9,10 +9,6 @@ function slabTextHeadlines() {
 $(document).ready(function() {
   slabTextHeadlines();
   prettyPrint();
-  try {
-    Typekit.load();
-  }
-  catch(e){}
 
   $('body').waypoint(function(e, d) {
   	if (d === 'down') {
