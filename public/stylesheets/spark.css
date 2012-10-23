@@ -4915,10 +4915,20 @@ h1 {
   display: block;
   margin-top: 0;
   margin-bottom: 0;
+  text-align: center;
 }
 h1#slabtext2 {
   line-height: 75%;
   margin-top: 5px;
+}
+h1#slabtext5 {
+  line-height: 90%;
+}
+h1.demo {
+  margin-bottom: 10px;
+}
+pre.prettyprint {
+  padding: 10px;
 }
 .sparkbtn {
   display: inline-block;
