@@ -44,6 +44,20 @@ app.get('/api', function (req, res) {
   res.render('api');
 });
 
+app.post('/', function (req, res) {
+  var signup = new Signup({email: req.body.email});
+  signup.save();
+  res.redirect('/');
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+// Mongoose stuffs
+
+var mongoose = require('mongoose');
+var db = mongoose.createConnection('mongodb://judy:cosmogspacely@alex.mongohq.com:10094/Spark-Signups');
+
+var schema = mongoose.Schema({ email: 'string' });
+var Signup = db.model('Signup', schema);

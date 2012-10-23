@@ -49,9 +49,9 @@ block content
 		.row
 			.span5
 				p Spark is launching Fall 2012.
-			form.form-inline
+			form.form-inline(method="POST", action="/")
 				.controls.controls-row
-					input.span4(type='text', placeholder='Type email address here')
+					input.span4(type='text', name='email', placeholder='Type email address here')
 					button.btn.span3(type='submit') Sign up for updates
 	footer
 		.container
