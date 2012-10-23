@@ -12,9 +12,14 @@ block content
 			}(document, 'script', 'facebook-jssdk'));</script>
 	.container
 		- if (message)
+			script
+				mixpanel.track("Email address submitted via landing page");
 			.row
 				.span12
 					.alert.alert-success #{message}
+		- else
+			script
+				mixpanel.track("Landing page loaded");
 		.row
 			.span6
 				img(src="images/spark-hero.jpg", width=800)

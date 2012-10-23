@@ -3,9 +3,15 @@ extends layout
 block content
 	.container
 		- if (message)
+			script
+				mixpanel.track("Email address submitted via API docs");
 			.row
 				.span12
 					.alert.alert-success #{message}
+		- else
+			script
+				mixpanel.track("API Docs loaded");
+
 		.row
 			.span6
 				pre.prettyprint.
