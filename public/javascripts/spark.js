@@ -1,8 +1,7 @@
 function slabTextHeadlines() {
-$("h1").slabText({
-// Don't slabtext the headers if the viewport is under 380px
-"viewportBreakpoint":380
-});
+  $('#slabtext1').fitText(.81);
+  $('#slabtext2').fitText(.35);
+  $('#slabtext3').fitText(1.33);
 };
 
 $(document).ready(function() {

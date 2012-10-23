@@ -43,6 +43,15 @@
 h1 {
 	text-transform: uppercase;
 	font-weight: 800;
+  line-height: normal;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1#slabtext2 {
+  line-height: 75%;
+  margin-top: 5px;
 }
 
 .sparkbtn {
@@ -149,6 +158,22 @@ hr {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.social-container {
+  position: relative;
+  padding-bottom: 70px;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.social-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .flatButtonBackground(@startColor) {
