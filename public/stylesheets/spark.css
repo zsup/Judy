@@ -4895,7 +4895,8 @@ a.badge:hover {
   text-shadow: 0 1px 0 #eee;
 }
 .nav > li > a.ks {
-  color: #000;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background: #87c442;
   margin: 20px 20px 20px 0;
   padding: 20px;
