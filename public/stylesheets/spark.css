@@ -4887,6 +4887,8 @@ a.badge:hover {
   display: block;
   padding: 10px;
   margin-left: -10px;
+  width: 200px;
+  height: 80px;
 }
 a.ks {
   font-size: 18px;
