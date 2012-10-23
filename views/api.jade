@@ -2,6 +2,10 @@ extends layout
 
 block content
 	.container
+		- if (message)
+			.row
+				.span12
+					.alert.alert-success #{message}
 		.row
 			.span6
 				pre.prettyprint.
@@ -17,7 +21,7 @@ block content
 			.span6
 				h1#slabtext4 A RESTful API for
 				h1#slabtext5 lights
-		hr.soften
+		hr.soften.small
 		.row
 			.span4
 				h3 It's like jQuery for the real world.
@@ -33,3 +37,9 @@ block content
 				h3 Help us!
 				p.api We can only make this product and this API a reality with your support!
 				p.api Back us on Kickstarter by clicking the big ol' green button up there.
+		.row
+			.span8.offset2
+				form.form-inline(method="POST", action="/api")
+					.controls.controls-row
+						input.span5(type='text', name='email', placeholder='Type email address here')
+						button.btn.span3(type='submit') Sign up for updates

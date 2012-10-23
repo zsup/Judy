@@ -33,7 +33,7 @@ app.configure('development', function(){
 // This should probably be handled in the router, but I'm lazy.
 
 app.get('/', function (req, res) {
-  res.render('index');
+  res.render('index', {message: null});
 });
 
 app.get('/demo', function (req, res) {
@@ -41,13 +41,19 @@ app.get('/demo', function (req, res) {
 });
 
 app.get('/api', function (req, res) {
-  res.render('api');
+  res.render('api', {message: null});
 });
 
 app.post('/', function (req, res) {
-  var signup = new Signup({email: req.body.email});
+  var signup = new Signup({email: req.body.email, source: "Front page"});
   signup.save();
-  res.redirect('/');
+  res.render('index', {message: "Thank you for signing up! We'll be in touch soon."});
+});
+
+app.post('/api', function (req, res) {
+  var signup = new Signup({email: req.body.email, source: "API Docs"});
+  signup.save();
+  res.render('api', {message: "Thank you for signing up! We'll be in touch soon."})
 });
 
 http.createServer(app).listen(app.get('port'), function(){
@@ -59,5 +65,5 @@ http.createServer(app).listen(app.get('port'), function(){
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://judy:cosmogspacely@alex.mongohq.com:10094/Spark-Signups');
 
-var schema = mongoose.Schema({ email: 'string' });
+var schema = mongoose.Schema({ email: 'string', source: 'string' });
 var Signup = db.model('Signup', schema);

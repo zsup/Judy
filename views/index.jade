@@ -11,6 +11,10 @@ block content
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
 	.container
+		- if (message)
+			.row
+				.span12
+					.alert.alert-success #{message}
 		.row
 			.span6
 				img(src="images/spark-hero.jpg", width=800)
