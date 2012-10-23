@@ -19,7 +19,7 @@ html
     | <!--[if lt IE 9]>
     | <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     | <![endif]-->
-  body
+  body#spark
     .navbar.navbar-fixed-top
       .inner
         .container
@@ -28,8 +28,6 @@ html
           a.ks.pull-right(href="#") Back us on Kickstarter
     block content
     script(src='http://use.typekit.net/mov0hpt.js')
-    script
-      try{Typekit.load();}catch(e){}
     script(src='http://code.jquery.com/jquery-latest.js')
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/jquery.fittext.js')

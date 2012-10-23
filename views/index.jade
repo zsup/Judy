@@ -29,10 +29,11 @@ block content
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		hr.soften
 		.row
-			.span4.pull-right
-				img.spark-one(src="/images/spark-001.jpg")
-			.span8
+			.span12
 				h2 Hey, there!
+			.span3.pull-right
+				img.big.spark-one(src="/images/spark-001.jpg")
+			.span9
 				p.spread-out I'm Spark. I connect your lights to the internet.
 				p.spread-out Why? Well, a bunch of reasons. I let you control your lights from any smartphone, tablet, or computer. I make any light fixture dimmable, so you can have mood lighting.
 				p.spread-out But most amazingly - most awesomely - I let apps interact with your lights. And that means by downloading an app on your phone, you can have a "sunrise" alarm clock that turns on your lights slowly to help you wake up in the morning, or a vacation app that turns on your lights randomly while you're away so it looks like someone's home, or a million other things.
@@ -43,7 +44,7 @@ block content
 				h2 Hey, developers!
 		.row
 			.span4
-				img(src="/images/spark-002.jpg")
+				img.big(src="/images/spark-002.jpg")
 			.span8
 				p.spread-out I'm here for you, friends. I've got a pretty cool, unbelieveably easy-to-use API so you can make great apps for Spark. It looks like this:
 				code.spread-out.prettyprint curl -X POST /v1/devices/DEVICE_ID/on
@@ -63,7 +64,7 @@ block content
 		hr.soften
 		.row
 			.span5
-				p Spark is launching Fall 2012.
+				p(style="font-size:18px; line-height:30px") Spark is launching Fall 2012.
 			form.form-inline(method="POST", action="/")
 				.controls.controls-row
 					input.span4(type='text', name='email', placeholder='Type email address here')
