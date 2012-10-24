@@ -15,12 +15,12 @@ block content
 							a(href="#branding") Branding
 						li
 							a(href="#images") Product images
-						li
+						// li
 							a(href="#video") Video clips
 						li
-							a(href="#pr") Press release
+							a(href="#pr") Press releases
 						li
-							a(href="#other") Other documents
+							a(href="#other") More about Spark
 						li
 							a(href="#contact") Contact
 					.well
@@ -77,39 +77,24 @@ block content
 										a(href="https://s3.amazonaws.com/spark-press-assets/spark-mark.eps") Download EPS
 				#images
 					h2 Product images &nbsp;
-						a.btn(href="#") Download ZIP of all files
+						a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-pics.zip") Download ZIP of JPGs
+						a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-pics-high-res.zip") Download ZIP of high-res JPGs
 					ul.thumbnails
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-						li.span3
-							.thumbnail
-								img(src="http://placehold.it/300x300")
-								h4 Pic 1
-								a.btn(href="#") Download JPG
-				#video
+						- for (i = 1; i<10; i++)
+							li.span3
+								.thumbnail
+									img(src="https://s3.amazonaws.com/spark-press-assets/spark-00#{i}.jpg")
+									h4 Picture #{i}
+									a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-00#{i}.jpg") Download JPG									
+									a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-high-res-00#{i}.jpg") Download high-res JPG
+						- for (i = 10; i < 17; i++)
+							li.span3
+								.thumbnail
+									img(src="https://s3.amazonaws.com/spark-press-assets/spark-0#{i}.jpg")
+									h4 Picture #{i}
+									a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-0#{i}.jpg") Download JPG						
+									a.btn(href="https://s3.amazonaws.com/spark-press-assets/spark-high-res-0#{i}.jpg") Download high-res JPG						
+				// #video
 					h2 Video clips
 					ul.thumbnails
 						li.span3
@@ -131,20 +116,18 @@ block content
 							a(href="#").thumbnail
 								img(src="http://placehold.it/300x300")
 				#pr
-					h2 Press release
+					h2 Press releases
 					.well
+						h4 Launch announcement: October 24, 2012
 						a.btn(href="#") Download PDF
-						a.btn(href="#") Download DOC
 				#other
-					h2 Other documents
+					h2 More about Spark
 					.well
 						h4 Team bios
 						a.btn(href="#") Download PDF
-						a.btn(href="#") Download DOC
 					.well
 						h4 FAQs
 						a.btn(href="#") Download PDF
-						a.btn(href="#") Download DOC
 				#contact
 					h2 Contact information
 					.well
