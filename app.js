@@ -44,6 +44,10 @@ app.get('/api', function (req, res) {
   res.render('api', {message: null});
 });
 
+app.get('/press', function (req, res) {
+  res.render('press');
+})
+
 app.post('/', function (req, res) {
   var signup = new Signup({email: req.body.email, source: "Front page"});
   signup.save();
