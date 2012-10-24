@@ -10,6 +10,14 @@ $(document).ready(function() {
   slabTextHeadlines();
   prettyPrint();
 
+  $('#pressnav').affix({
+    offset: {
+      top: 300
+    }
+  });
+
+  // $('#pressnavbar').scrollspy();
+
   $('body').waypoint(function(e, d) {
   	if (d === 'down') {
   		$('.inner').addClass("navbar-inner");
