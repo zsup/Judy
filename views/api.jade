@@ -16,13 +16,13 @@ block content
 			.span6
 				pre.prettyprint.
 					# Turn off a light
-					curl -X POST /v1/devices/DEVICE_ID/off
-					&nbsp;
-					# Dim a light to 50%
-					curl -X POST /v1/devices/DEVICE_ID/50
+					POST /v1/devices/DEVICE_ID/off
 					&nbsp;
 					# Fade a light off over 3 seconds (3000ms)
-					curl -X POST /v1/devices/DEVICE_ID/fade/0/3000
+					POST /v1/devices/DEVICE_ID/fade/0/3000
+					&nbsp;
+					# Get the current status of a light
+					GET /v1/devices/DEVICE_ID
 
 			.span6
 				h1#slabtext4 A RESTful API for
@@ -42,7 +42,8 @@ block content
 			.span4
 				h3 Help us!
 				p.api We can only make this product and this API a reality with your support!
-				p.api Back us on Kickstarter by clicking the big ol' green button up there.
+				p.api We're launching on Kickstarter on November 13 - send us your email address to keep you updated!
+				//- p.api Back us on Kickstarter by clicking the big ol' green button up there.
 		.row
 			.span8.offset2
 				form.form-inline(method="POST", action="/api")
