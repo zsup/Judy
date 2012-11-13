@@ -5015,6 +5015,8 @@ pre.prettyprint {
   *background-color: #87c442;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .btn-kickstarter:hover,
 .btn-kickstarter:active,
