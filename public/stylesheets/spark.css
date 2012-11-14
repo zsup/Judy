@@ -5129,6 +5129,9 @@ code.spread-out {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.instructions.red {
+  background-color: #9d261d;
+}
 .instructions p {
   color: #ffffff;
   font-size: 18px;
