@@ -5129,6 +5129,10 @@ code.spread-out {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.instructions a {
+  color: #ffffff;
+  text-decoration: underline;
+}
 .instructions.red {
   background-color: #9d261d;
 }
