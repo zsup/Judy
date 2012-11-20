@@ -10,6 +10,10 @@ $(document).ready(function() {
   slabTextHeadlines();
   prettyPrint();
 
+  window.setInterval(function() {
+    $('.bounce').effect("bounce", {"distance": 30}, 800);
+  }, 5000);
+
   $('#pressnav').affix({
     offset: {
       top: 300
