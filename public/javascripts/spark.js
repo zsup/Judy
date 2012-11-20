@@ -6,13 +6,13 @@ function slabTextHeadlines() {
   $('#slabtext5').fitText(.35);
 };
 
+window.setInterval(function() {
+  $('.bounce').effect("bounce", {"distance": 30}, 800);
+}, 5000);
+
 $(document).ready(function() {
   slabTextHeadlines();
   prettyPrint();
-
-  window.setInterval(function() {
-    $('.bounce').effect("bounce", {"distance": 30}, 800);
-  }, 5000);
 
   $('#pressnav').affix({
     offset: {
