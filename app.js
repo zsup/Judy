@@ -73,6 +73,7 @@ app.post('/christmas/:component', function(req, res) {
   if (1 === req.session.xmas && 1 === req.params.component.length && req.session.userID) {
     Action.findOne({ userID: req.session.userID, action: 'login' }, function(err, action) {
       if (action && !err) {
+        console.log("success for compenent " + req.params.component);
         new Action({
           userID      : req.session.userID,
           accessToken : req.session.accessToken,
@@ -85,6 +86,8 @@ app.post('/christmas/:component', function(req, res) {
           host: 'sprk.io',
           path: '/device/Henry/toggle/' + req.params.component + '?api_key=fb91rfPFS84wmzH3'
         });
+      } else {
+        console.log("component fail, err: " + err + ", action: " + action);
       }
     });
     res.send(200);
