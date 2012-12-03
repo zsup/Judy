@@ -83,7 +83,7 @@ app.post('/christmas/:component', function(req, res) {
         http.request({
           method: 'PUT',
           host: 'sprk.io',
-          path: '/device/Henry/toggle/' + component + '?api_key=fb91rfPFS84wmzH3'
+          path: '/device/Henry/toggle/' + req.params.component + '?api_key=fb91rfPFS84wmzH3'
         });
       }
     });
