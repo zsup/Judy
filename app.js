@@ -48,6 +48,10 @@ app.get('/press', function (req, res) {
   res.render('press');
 })
 
+app.get('/christmas', function (req, res) {
+  res.render('christmas');
+})
+
 app.get('/kickstarter', function (req, res) {
   res.redirect('http://www.kickstarter.com/projects/sparkdevices/spark-upgrade-your-lights-with-wi-fi-and-apps/');
 })
