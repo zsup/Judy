@@ -13,7 +13,9 @@ function spark_fb_login(response) {
       };
       FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
         if (post_response['error']) {
-          FB.ui(fb_post_obj);
+          FB.ui(fb_post_obj, function(dialog_response){
+            console.log(dialog_response);
+          });
         }
       });
     });
