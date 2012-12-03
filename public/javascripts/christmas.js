@@ -10,7 +10,9 @@ function spark_fb_login(response) {
         link: 'http://www.sparkdevices.com/christmas',
         name: 'Spark Christmas House',
         description: "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!"
-      }, function(post_response){});
+      }, function(post_response){
+        console.log(post_response);
+      });
     });
   }
 }
