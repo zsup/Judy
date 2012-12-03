@@ -23,11 +23,14 @@ block content
           p It'll go back up on Monday, so check back then!
           p In the meantime, be sure to check out our Kickstarter campaign (button in the upper right corner) to get your Spark Socket now!
       .span6
-        button.btn.btn-large.btn-block.btn-success Tree
-        button.btn.btn-large.btn-block.btn-info Icicles
-        button.btn.btn-large.btn-block.btn-primary Walkway
-        button.btn.btn-large.btn-block.btn-warning Reindeer
-        button.btn.btn-large.btn-block.btn-danger Snowman
-        button.btn.btn-large.btn-block.btn-inverse Banister
+        #xmas-buttons
+          button.btn.btn-large.btn-block.btn-success Tree
+          button.btn.btn-large.btn-block.btn-info Icicles
+          button.btn.btn-large.btn-block.btn-primary Walkway
+          button.btn.btn-large.btn-block.btn-warning Reindeer
+          button.btn.btn-large.btn-block.btn-danger Snowman
+          button.btn.btn-large.btn-block.btn-inverse Banister
+        #facebook-login-button
+          .fb-login-button(data-size="xlarge", data-show-faces="true", data-width="200", data-max-rows="4")
   script
     mixpanel.track("Demo page loaded");

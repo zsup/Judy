@@ -2,17 +2,7 @@ function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
   FB.api('/me', function(response) {
     console.log('Good to see you, ' + response.name + '.');
-  });
-}
-
-function login() {
-  FB.login(function(response) {
-    if (response.authResponse) {
-      // connected
-      testAPI();
-    } else {
-      // cancelled
-    }
+    $('#xmas-buttons').show();
   });
 }
 
@@ -31,10 +21,8 @@ window.fbAsyncInit = function() {
       testAPI();
     } else if (response.status === 'not_authorized') {
       // not_authorized
-      login();
     } else {
       // not_logged_in
-      login();
     }
    });
  };
