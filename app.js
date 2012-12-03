@@ -92,6 +92,11 @@ app.post('/christmas/:component', function(req, res) {
     });
     res.send(200);
   } else {
+    console.log("component not working as expected, xmas: " + req.session.xmas +
+      " (" + typeof req.session.xmas +
+      "), component length: " + req.params.component.length +
+      " (" + typeof req.params.component.length +
+      "), userID: " + req.session.userID);
     res.send(403);
   }
 });
