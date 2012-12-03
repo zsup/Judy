@@ -6,12 +6,15 @@ function spark_fb_login(response) {
     }
     $.post('/christmas/login', data, function() {
       $('#xmas-buttons').show();
-      FB.api('/' + response.authResponse.userID + '/feed', 'post', {
+      var fb_post_obj = {
         link: 'http://www.sparkdevices.com/christmas',
         name: 'Spark Christmas House',
         description: "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!"
-      }, function(post_response){
-        console.log(post_response);
+      };
+      FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
+        if (post_response['error']) {
+          FB.ui(fb_post_obj);
+        }
       });
     });
   }
