@@ -17,8 +17,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('sP4rK-_-_!&^juUuUdahjudajuda'));
-  app.use(express.session());
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'sP4rK-_-_!&^juUuUdahjudajuda 961832626823650' }));
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -47,9 +47,45 @@ app.get('/press', function (req, res) {
   res.render('press');
 })
 
-app.get('/christmas', function (req, res) {
+app.get('/christmas', function(req, res) {
+  req.session.xmas = 1
   res.render('christmas');
-})
+});
+
+app.post('/christmas/login', function(req, res) {
+  if (1 === req.session.xmas && req.body.userID && req.body.accessToken) {
+    req.session.userID = req.body.userID;
+    req.session.accessToken = req.body.accessToken;
+    new Action({
+      userID      : req.body.userID,
+      accessToken : req.body.accessToken,
+      ip          : req.ip,
+      createdAt   : new Date().toISOString(),
+      action      : 'login'
+    }).save();
+  }
+});
+
+app.post('/christmas/:component', function(req, res) {
+  if (1 === req.session.xmas && 1 === req.params.component.length && req.session.userID) {
+    Action.findOne({ userID: req.session.userID, action: 'login' }, function(err, action) {
+      if (action && !err) {
+        new Action({
+          userID      : req.session.userID,
+          accessToken : req.session.accessToken,
+          ip          : req.ip,
+          createdAt   : new Date().toISOString(),
+          action      : req.params.component
+        }).save();
+        http.request({
+          method: 'PUT',
+          host: 'sprk.io',
+          path: '/device/Henry/toggle/' + component + '?api_key=fb91rfPFS84wmzH3'
+        });
+      }
+    });
+  }
+});
 
 app.get('/kickstarter', function (req, res) {
   res.redirect('http://www.kickstarter.com/projects/sparkdevices/spark-upgrade-your-lights-with-wi-fi-and-apps/');
@@ -78,3 +114,12 @@ var db = mongoose.createConnection('mongodb://judy:cosmogspacely@alex.mongohq.co
 
 var schema = mongoose.Schema({ email: 'string', source: 'string' });
 var Signup = db.model('Signup', schema);
+
+schema = mongoose.Schema({
+  userID      : 'string',
+  accessToken : 'string',
+  ip          : 'string',
+  createdAt   : 'string',
+  action      : 'string'
+});
+var Action = db.model('Action', schema);
