@@ -85,11 +85,9 @@ app.post('/christmas/:component', function(req, res) {
           host: 'sprk.io',
           path: '/device/Henry/toggle/' + component + '?api_key=fb91rfPFS84wmzH3'
         });
-        res.send(200);
-      } else {
-        res.send(403);
       }
     });
+    res.send(200);
   } else {
     res.send(403);
   }
