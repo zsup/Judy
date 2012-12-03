@@ -1,31 +1,33 @@
 extends layout
 
 block content
-	.container
-		.row
-			.span12
-				h1.demo Control our Christmas lights online. Seriously.
-		.row
-			.span6
-				.embed-container.
-					<iframe src="http://www.ustream.tv/embed/12735085" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
-				.instructions.hidden-phone
-					p Our Christmas lights are hooked up through Spark!
-					p Log in with Facebook to take control of our lights.
-					p Don't believe us? Try it!
-					p And don't forget to back our 
-						a(href="http://www.kickstarter.com/projects/sparkdevices/spark-upgrade-your-lights-with-wi-fi-and-apps") Kickstarter campaign!
-				// .instructions.red
-					p Did you come to check out our live demo?
-					p Sorry - the demo is down for the weekend. We're working on some tweaks and improvements.
-					p It'll go back up on Monday, so check back then!
-					p In the meantime, be sure to check out our Kickstarter campaign (button in the upper right corner) to get your Spark Socket now!
-			.span6
-				button.btn.btn-large.btn-block.btn-success Tree
-				button.btn.btn-large.btn-block.btn-info Icicles
-				button.btn.btn-large.btn-block.btn-primary Walkway
-				button.btn.btn-large.btn-block.btn-warning Reindeer
-				button.btn.btn-large.btn-block.btn-danger Snowman
-				button.btn.btn-large.btn-block.btn-inverse Banister
-	script
-		mixpanel.track("Demo page loaded");
+  #fb-root
+  script(src='/javascripts/christmas.js')
+  .container
+    .row
+      .span12
+        h1.demo Control our Christmas lights online. Seriously.
+    .row
+      .span6
+        .embed-container.
+          <iframe src="http://www.ustream.tv/embed/12735085" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
+        .instructions.hidden-phone
+          p Our Christmas lights are hooked up through Spark!
+          p Log in with Facebook to take control of our lights.
+          p Don't believe us? Try it!
+          p And don't forget to back our
+            a(href="http://www.kickstarter.com/projects/sparkdevices/spark-upgrade-your-lights-with-wi-fi-and-apps") Kickstarter campaign!
+        // .instructions.red
+          p Did you come to check out our live demo?
+          p Sorry - the demo is down for the weekend. We're working on some tweaks and improvements.
+          p It'll go back up on Monday, so check back then!
+          p In the meantime, be sure to check out our Kickstarter campaign (button in the upper right corner) to get your Spark Socket now!
+      .span6
+        button.btn.btn-large.btn-block.btn-success Tree
+        button.btn.btn-large.btn-block.btn-info Icicles
+        button.btn.btn-large.btn-block.btn-primary Walkway
+        button.btn.btn-large.btn-block.btn-warning Reindeer
+        button.btn.btn-large.btn-block.btn-danger Snowman
+        button.btn.btn-large.btn-block.btn-inverse Banister
+  script
+    mixpanel.track("Demo page loaded");
