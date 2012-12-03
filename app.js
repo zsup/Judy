@@ -81,11 +81,16 @@ app.post('/christmas/:component', function(req, res) {
           createdAt   : new Date().toISOString(),
           action      : req.params.component
         }).save();
-        http.request({
+        var options = {
           method: 'PUT',
           host: 'sprk.io',
           path: '/device/Henry/toggle/' + req.params.component + '?api_key=fb91rfPFS84wmzH3'
-        });
+        };
+        http.request(options, function(apiResponse){
+          apiResponse.on('data', function(chunk){
+            console.log(' *** API: ' + chunk);
+          });
+        }).end();
       } else {
         console.log("component fail, err: " + err + ", action: " + action);
       }
