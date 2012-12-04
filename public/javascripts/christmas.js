@@ -14,11 +14,7 @@ function spark_fb_login(response) {
       };
       FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
         if (post_response['error']) {
-          console.log("error: " + post_response['error']);
-          // fb_post_obj['method'] = 'feed';
-          // FB.ui(fb_post_obj, function(dialog_response){
-          //   console.log(dialog_response);
-          // });
+          console.log("error posting to feed: " + post_response['error']);
         }
       });
     });
@@ -56,11 +52,7 @@ $(document).ready(function(){
   });
   $('#fb-login-button').click(function(){
     FB.login(function(response) {
-      if (response.authResponse) {
-        console.log("You did it!");
-      } else {
-        console.log("Login cancelled/failed");
-      }
-    });
+      console.log("login response: " + response);
+    }, { scope: 'publish_actions' });
   });
 });
