@@ -26,11 +26,8 @@ function spark_fb_login(response) {
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '208678505934382', // App ID
-    channelUrl : '//www.sparkdevices.com/channel.html', // Channel File
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
+    appId      : '208678505934382',
+    channelUrl : '//www.sparkdevices.com/channel.html'
   });
   FB.Event.subscribe('auth.authResponseChange', spark_fb_login);
 };
@@ -51,8 +48,6 @@ $(document).ready(function(){
     });
   });
   $('#fb-login-button').click(function(){
-    FB.login(function(response) {
-      console.log("login response: " + response);
-    }, { scope: 'publish_actions' });
+    FB.login({ scope: 'publish_actions' });
   });
 });
