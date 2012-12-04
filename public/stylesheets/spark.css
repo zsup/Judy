@@ -4921,6 +4921,39 @@ img.click {
 #facebook-login {
   display: none;
 }
+#fb-login-button {
+  margin-bottom: 1em;
+  padding: 20px 24px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #6b82b2;
+  background-image: -moz-linear-gradient(top, #8b9dc3, #3b5998);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8b9dc3), to(#3b5998));
+  background-image: -webkit-linear-gradient(top, #8b9dc3, #3b5998);
+  background-image: -o-linear-gradient(top, #8b9dc3, #3b5998);
+  background-image: linear-gradient(to bottom, #8b9dc3, #3b5998);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8b9dc3', endColorstr='#ff3b5998', GradientType=0);
+  border-color: #3b5998 #3b5998 #263961;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #3b5998;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+#fb-login-button:hover,
+#fb-login-button:active,
+#fb-login-button.active,
+#fb-login-button.disabled,
+#fb-login-button[disabled] {
+  color: #ffffff;
+  background-color: #3b5998;
+  *background-color: #344e86;
+}
+#fb-login-button:active,
+#fb-login-button.active {
+  background-color: #2d4373 \9;
+}
 h1 {
   text-transform: uppercase;
   font-weight: 800;
