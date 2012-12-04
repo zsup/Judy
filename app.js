@@ -36,7 +36,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/demo', function (req, res) {
-  res.render('demo');
+  req.session.xmas = 1;
+  res.render('christmas');
 });
 
 app.get('/api', function (req, res) {
@@ -45,10 +46,10 @@ app.get('/api', function (req, res) {
 
 app.get('/press', function (req, res) {
   res.render('press');
-})
+});
 
 app.get('/christmas', function(req, res) {
-  req.session.xmas = 1
+  req.session.xmas = 1;
   res.render('christmas');
 });
 

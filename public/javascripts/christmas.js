@@ -8,7 +8,7 @@ function spark_fb_login(response) {
       $('#xmas-buttons').show();
       $('#facebook-login').hide();
       var fb_post_obj = {
-        link: 'http://www.sparkdevices.com/christmas',
+        link: 'http://www.sparkdevices.com/demo',
         name: 'Spark Christmas House',
         description: "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!"
       };
