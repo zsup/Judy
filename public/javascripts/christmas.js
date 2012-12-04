@@ -48,6 +48,6 @@ $(document).ready(function(){
     });
   });
   $('#fb-login-button').click(function(){
-    FB.login({ scope: 'publish_actions' });
+    FB.login(function(){}, { scope: 'publish_actions' });
   });
 });
