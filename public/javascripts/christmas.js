@@ -20,6 +20,10 @@ function spark_fb_login(response) {
         }
       });
     });
+  } else if (response.status === 'not_authorized') {
+    $('#facebook-login').show();
+  } else {
+    $('#facebook-login').show();
   }
 }
 
@@ -48,6 +52,15 @@ $(document).ready(function(){
   $('#xmas-buttons').children().each(function(index){
     $(this).click(function(){
       $.post('/christmas/' + index);
+    });
+  });
+  $('#fb-login-button').click(function(){
+    FB.login(function(response) {
+      if (response.authResponse) {
+        console.log("You did it!");
+      } else {
+        console.log("Login cancelled/failed");
+      }
     });
   });
 });
