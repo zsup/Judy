@@ -14,16 +14,16 @@ function spark_fb_login(response) {
       };
       FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
         if (post_response['error']) {
-          fb_post_obj['method'] = 'feed';
-          FB.ui(fb_post_obj, function(dialog_response){
-            console.log(dialog_response);
-          });
+          console.log("error: " + post_response['error']);
+          // fb_post_obj['method'] = 'feed';
+          // FB.ui(fb_post_obj, function(dialog_response){
+          //   console.log(dialog_response);
+          // });
         }
       });
     });
-  } else if (response.status === 'not_authorized') {
-    $('#facebook-login').show();
   } else {
+    $('#xmas-buttons').hide();
     $('#facebook-login').show();
   }
 }
@@ -31,13 +31,12 @@ function spark_fb_login(response) {
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '208678505934382', // App ID
-    channelUrl : 'http://www.sparkdevices.com/channel.html', // Channel File
+    channelUrl : '//www.sparkdevices.com/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
-  FB.Event.subscribe('auth.login', spark_fb_login);
-  FB.getLoginStatus(spark_fb_login);
+  FB.Event.subscribe('auth.authResponseChange', spark_fb_login);
 };
 
 // Load the SDK Asynchronously
