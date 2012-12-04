@@ -6,6 +6,7 @@ function spark_fb_login(response) {
     }
     $.post('/christmas/login', data, function() {
       $('#xmas-buttons').show();
+      $('#facebook-login').hide();
       var fb_post_obj = {
         link: 'http://www.sparkdevices.com/christmas',
         name: 'Spark Christmas House',
