@@ -4,19 +4,21 @@ function spark_fb_login(response) {
       userID      : response.authResponse.userID,
       accessToken : response.authResponse.accessToken
     }
-    $.post('/christmas/login', data, function() {
+    $.post('/christmas/login', data, function(login_response) {
       $('#xmas-buttons').show();
       $('#facebook-login').hide();
-      var fb_post_obj = {
-        link: 'http://www.sparkdevices.com/demo',
-        name: 'Spark Christmas House',
-        description: "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!"
-      };
-      FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
-        if (post_response['error']) {
-          console.log("error posting to feed: " + post_response['error']);
-        }
-      });
+      if (login_response.should_post) {
+        var fb_post_obj = {
+          link: 'http://www.sparkdevices.com/demo',
+          name: 'Spark Christmas House',
+          description: "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!"
+        };
+        FB.api('/me/feed', 'post', fb_post_obj, function(post_response){
+          if (post_response['error']) {
+            console.log("error posting to feed: " + post_response['error']);
+          }
+        });
+      }
     });
   } else {
     $('#xmas-buttons').hide();
