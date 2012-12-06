@@ -64,13 +64,11 @@ app.post('/christmas/login', function(req, res) {
       createdAt   : new Date().toISOString(),
       action      : 'login'
     }).save();
-    console.log(" *** PRE session: maxAge: " + req.session.maxAge + ", expires: " + req.session.expires);
     var should_post = false;
     if (!req.session.maxAge || 0 >= req.session.maxAge) {
       req.session.maxAge = 48 * 60 * 60 * 1000;
       should_post = true;
     }
-    console.log(" *** POST session: maxAge: " + req.session.maxAge + ", expires: " + req.session.expires);
     res.json({ should_post: should_post });
   } else {
     res.send(403);
