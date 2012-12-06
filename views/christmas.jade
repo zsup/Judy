@@ -41,6 +41,33 @@ block content
         #facebook-login
           #fb-login-button.button.btn.btn-large.btn-block Sign in with Facebook
           p Want to control our Christmas lights? Sign in with Facebook to take control. We'll post to your wall that you're controlling the lights on our house, so take it for a spin and help us spread the word!
+        #sharing
+          .social-button#social-button-twitter
+            a.twitter-share-button(href="https://twitter.com/share", data-text="I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!", data-via="sparkdevices") Tweet
+            script
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+          .social-button#social-button-facebook
+            .fb-like(data-send="true", data-layout="button_count", data-width="160", data-show-faces="true")
+
+          .social-button#social-button-pinterest
+            a.pin-it-button(href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.sparkdevices.com%2Fdemo&media=https%3A%2F%2Fs3.amazonaws.com%2Fspark-press-assets%2Fspark-001.jpg&description=I'm%20controlling%20someone's%20Christmas%20lights%20over%20the%20internet%20using%20Spark!%20Check%20out%20the%20webcam%2C%20and%20take%20control%20yourself!", count-layout="horizontal")
+              img(border="0", src="//assets.pinterest.com/images/PinExt.png", title="Pin It")
+            script(type="text/javascript", src="//assets.pinterest.com/js/pinit.js")
+
+          .social-button#social-button-tumblr
+            span#tumblr_button
+            script
+              var tumblr_link_url = "http://www.sparkdevices.com/demo";
+              var tumblr_link_name = "Spark Christmas House";
+              var tumblr_link_description = "I'm controlling someone's Christmas lights over the internet using Spark! Check out the webcam, and take control yourself!";
+              var tumblr_button = document.createElement("a");
+              tumblr_button.setAttribute("href", "http://www.tumblr.com/share/link?url=" + encodeURIComponent(tumblr_link_url) + "&name=" + encodeURIComponent(tumblr_link_name) + "&description=" + encodeURIComponent(tumblr_link_description));
+              tumblr_button.setAttribute("title", "Share on Tumblr");
+              tumblr_button.setAttribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;");
+              tumblr_button.innerHTML = "Share on Tumblr";
+              document.getElementById("tumblr_button").appendChild(tumblr_button);
+            script(src="http://platform.tumblr.com/v1/share.js")
     .row
       .span12
         .instructions

@@ -27,7 +27,8 @@ function spark_fb_login(response) {
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '208678505934382',
-    channelUrl : '//www.sparkdevices.com/channel.html'
+    channelUrl : '//www.sparkdevices.com/channel.html',
+    xfbml      : true
   });
   FB.Event.subscribe('auth.authResponseChange', spark_fb_login);
 };
