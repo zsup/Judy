@@ -1,6 +1,6 @@
-Jane
+Judy
 ===
 
-This is Jane, the pretty face of Spark.
+This is Judy, the pretty face of Spark.
 
-What does that mean? This is the landing page.
+What does that mean? This is the mostly public [Spark Devices](http://www.sparkdevices.com/) website.
