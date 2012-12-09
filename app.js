@@ -37,11 +37,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/demo', function (req, res) {
-  console.log("session.xmas (pre): " + req.session.xmas);
-  console.log("session['xmas'] (pre): " + req.session['xmas']);
-  req.session.xmas = 1;
-  console.log("session.xmas (post): " + req.session.xmas);
-  console.log("session['xmas'] (post): " + req.session['xmas']);
   res.render('christmas');
 });
 
@@ -54,12 +49,11 @@ app.get('/press', function (req, res) {
 });
 
 app.get('/christmas', function(req, res) {
-  req.session.xmas = 1;
   res.render('christmas');
 });
 
 app.post('/christmas/login', function(req, res) {
-  if (1 === req.session.xmas && req.body.userID && req.body.accessToken) {
+  if (req.body.userID && req.body.accessToken) {
     req.session.userID = req.body.userID;
     req.session.accessToken = req.body.accessToken;
     new Action({
@@ -76,8 +70,6 @@ app.post('/christmas/login', function(req, res) {
     }
     res.json({ should_post: should_post });
   } else {
-    console.log("req.session.xmas: " + typeof req.session.xmas + " " + req.session.xmas);
-    console.log("req.session['xmas']: " + typeof req.session['xmas'] + " " + req.session['xmas']);
     res.send(403);
   }
 });
