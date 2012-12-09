@@ -18,7 +18,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'sP4rK-_-_!&^juUuUdahjudajuda 961832626823650' }));
+  app.use(express.session({ secret: 'sP4rK-_-_!&^juUuUdahjudajuda 961832626823650',
+                            cookie: { secure: true } }));
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -65,8 +66,8 @@ app.post('/christmas/login', function(req, res) {
       action      : 'login'
     }).save();
     var should_post = false;
-    if (!req.session.maxAge || 0 >= req.session.maxAge) {
-      req.session.maxAge = 48 * 60 * 60 * 1000;
+    if (!req.session.cookie.maxAge || 0 >= req.session.cookie.maxAge) {
+      req.session.cookie.maxAge = 48 * 60 * 60 * 1000;
       should_post = true;
     }
     res.json({ should_post: should_post });
