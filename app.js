@@ -64,6 +64,7 @@ app.post('/christmas/login', function(req, res) {
       action      : 'login'
     }).save();
     var should_post = false;
+    console.log("cookie.maxAge: " + req.session.cookie.maxAge);
     if (!req.session.cookie.maxAge || 0 >= req.session.cookie.maxAge) {
       req.session.cookie.maxAge = 48 * 60 * 60 * 1000;
       should_post = true;
