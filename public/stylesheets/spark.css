@@ -4957,11 +4957,17 @@ p.xmas {
 #fb-login-button.active {
   background-color: #2d4373 \9;
 }
-.social-button {
+#sharing .social-button {
   display: inline-block;
   height: 22px;
   vertical-align: middle;
   margin-right: 1em;
+}
+#sharing #social-button-twitter {
+  width: 86px;
+}
+#sharing #social-button-pinterest {
+  width: 62px;
 }
 h1 {
   text-transform: uppercase;
