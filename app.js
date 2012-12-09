@@ -72,6 +72,7 @@ app.post('/christmas/login', function(req, res) {
     }
     res.json({ should_post: should_post });
   } else {
+    console.log("req.session.xmas: " + typeof req.session.xmas + " " + req.session.xmas);
     res.send(403);
   }
 });
