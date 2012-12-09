@@ -62,11 +62,16 @@ app.post('/christmas/login', function(req, res) {
       createdAt   : Date.now(),
       action      : 'login',
     };
-    Action.findRecentPost(req.session.userID, function(err, action) {
-      console.log("findRecentPost err: " + err);
-      newActionObj.shouldPost = (action && !err);
-      new Action(newActionObj).save();
-      res.json({ should_post: newActionObj.shouldPost });
+    Action.countRecentPosts(req.session.userID, function(err, count) {
+      if (err) {
+        console.log("countRecentPosts err: " + err);
+        res.json(500, { error: "database error" });
+      } else {
+        console.log("countRecentPosts count: " + count);
+        newActionObj.shouldPost = (0 === count);
+        new Action(newActionObj).save();
+        res.json({ should_post: newActionObj.shouldPost });
+      }
     });
   } else {
     res.send(403);
@@ -141,11 +146,11 @@ schema = mongoose.Schema({
   shouldPost  : Boolean
 });
 var Action = db.model('Action', schema);
-Action.findRecentPost = function(userID, callback) {
-  Action.findOne({
+Action.countRecentPosts = function(userID, callback) {
+  Action.count({
     userID: userID,
     action: 'login',
     shouldPost: true,
     createdAt: {'$gte': Date.now() - (48 * 60 * 60 * 1000) }
-  }, callback);
+  }, callback).exec();
 };
