@@ -18,8 +18,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'sP4rK-_-_!&^juUuUdahjudajuda 961832626823650',
-                            cookie: { secure: true } }));
+  app.use(express.session({ secret: 'sP4rK-_-_!&^juUuUwdahjudajuda 96183262682365' }));
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -56,30 +55,28 @@ app.post('/christmas/login', function(req, res) {
   if (req.body.userID && req.body.accessToken) {
     req.session.userID = req.body.userID;
     req.session.accessToken = req.body.accessToken;
-    new Action({
+    newActionObj = {
       userID      : req.body.userID,
       accessToken : req.body.accessToken,
       ip          : req.ip,
-      createdAt   : new Date().toISOString(),
-      action      : 'login'
-    }).save();
-    var should_post = false;
-    console.log("cookie.maxAge: " + req.session.cookie.maxAge);
-    if (!req.session.cookie.maxAge || 0 >= req.session.cookie.maxAge) {
-      req.session.cookie.maxAge = 48 * 60 * 60 * 1000;
-      should_post = true;
-    }
-    res.json({ should_post: should_post });
+      createdAt   : Date.now(),
+      action      : 'login',
+    };
+    Action.findRecentPost(req.session.userID, function(err, action) {
+      console.log("findRecentPost err: " + err);
+      newActionObj.shouldPost = (action && !err);
+      new Action(newActionObj).save();
+      res.json({ should_post: newActionObj.shouldPost });
+    });
   } else {
     res.send(403);
   }
 });
 
 app.post('/christmas/:component', function(req, res) {
-  if (1 === req.session.xmas && 1 === req.params.component.length && req.session.userID) {
+  if (1 === req.params.component.length && req.session.userID) {
     Action.findOne({ userID: req.session.userID, action: 'login' }, function(err, action) {
       if (action && !err) {
-        console.log("success for compenent " + req.params.component);
         new Action({
           userID      : req.session.userID,
           accessToken : req.session.accessToken,
@@ -103,11 +100,6 @@ app.post('/christmas/:component', function(req, res) {
     });
     res.send(200);
   } else {
-    console.log("component not working as expected, xmas: " + req.session.xmas +
-      " (" + typeof req.session.xmas +
-      "), component length: " + req.params.component.length +
-      " (" + typeof req.params.component.length +
-      "), userID: " + req.session.userID);
     res.send(403);
   }
 });
@@ -141,10 +133,19 @@ var schema = mongoose.Schema({ email: 'string', source: 'string' });
 var Signup = db.model('Signup', schema);
 
 schema = mongoose.Schema({
-  userID      : 'string',
-  accessToken : 'string',
-  ip          : 'string',
-  createdAt   : 'string',
-  action      : 'string'
+  userID      : String,
+  accessToken : String,
+  ip          : String,
+  createdAt   : Date,
+  action      : String,
+  shouldPost  : Boolean
 });
 var Action = db.model('Action', schema);
+Action.findRecentPost = function(userID, callback) {
+  Action.findOne({
+    userID: userID,
+    action: 'login',
+    shouldPost: true,
+    createdAt: {'$gte': Date.now() - (48 * 60 * 60 * 1000) }
+  }, callback);
+};
