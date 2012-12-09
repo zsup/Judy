@@ -37,9 +37,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/demo', function (req, res) {
-  console.log(req.session);
+  console.log("session (pre): " + req.session);
   req.session.xmas = 1;
-  console.log(req.session);
+  console.log("session (post): " + req.session);
   res.render('christmas');
 });
 
@@ -75,7 +75,7 @@ app.post('/christmas/login', function(req, res) {
     res.json({ should_post: should_post });
   } else {
     console.log("req.session.xmas: " + typeof req.session.xmas + " " + req.session.xmas);
-    console.log(req.session);
+    console.log("session: " + req.session);
     res.send(403);
   }
 });
